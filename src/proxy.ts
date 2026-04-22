@@ -1,12 +1,13 @@
 import { type NextRequest } from 'next/server'
 import { updateSession } from '@/utils/supabase/middleware'
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const response = await updateSession(request)
 
+  // Auto-detect user locale if no preference is saved
   if (!request.cookies.has('NEXT_LOCALE')) {
     const acceptLang = request.headers.get('accept-language') || ''
-    const defaultLocale = acceptLang.startsWith('es') ? 'es' : 'en'
+    const defaultLocale = acceptLang.toLowerCase().startsWith('es') ? 'es' : 'en'
     response.cookies.set('NEXT_LOCALE', defaultLocale, { path: '/', maxAge: 31536000 })
   }
 
@@ -20,7 +21,6 @@ export const config = {
      * - _next/static (static files)
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
-     * Feel free to modify this pattern to include more paths.
      */
     '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
