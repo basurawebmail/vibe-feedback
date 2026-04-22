@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: var(--font-inter);
+  
+  --color-background: #0e0e0f;
+  --color-foreground: #e7e5e8;
+  
+  --color-card: #131315;
+  --color-card-foreground: #e7e5e8;
+  
+  --color-popover: #1f1f22;
+  --color-popover-foreground: #e7e5e8;
+  
+  --color-primary: #4ae176;
+  --color-primary-foreground: #004b1e;
+  
+  --color-secondary: #252628;
+  --color-secondary-foreground: #e7e5e8;
+  
+  --color-muted: #1f1f22;
+  --color-muted-foreground: #acaaae;
+  
+  --color-accent: #252628;
+  --color-accent-foreground: #e7e5e8;
+  
+  --color-destructive: #ee7d77;
+  --color-destructive-foreground: #490106;
+  
+  --color-border: #47484b;
+  --color-input: #252628;
+  --color-ring: #4ae176;
+
+  --radius-lg: 0.5rem;
+  --radius-md: calc(var(--radius-lg) - 2px);
+  --radius-sm: calc(var(--radius-md) - 2px);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    color-scheme: dark;
+  }
 }
