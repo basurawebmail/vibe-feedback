@@ -8,6 +8,7 @@ import {
   MoreVertical
 } from "lucide-react";
 import { createClient } from "@/utils/supabase/server";
+import Link from "next/link";
 
 export default async function DashboardPage() {
   const supabase = await createClient();
@@ -80,10 +81,10 @@ export default async function DashboardPage() {
           <button className="bg-secondary text-secondary-foreground hover:bg-secondary/80 px-4 py-1.5 rounded-md text-sm font-medium flex items-center border border-border">
             Upgrade to Starter
           </button>
-          <button className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-1.5 rounded-md text-sm font-medium flex items-center shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+          <Link href="/dashboard/projects" className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-1.5 rounded-md text-sm font-medium flex items-center shadow-[0_0_15px_rgba(74,225,118,0.2)]">
             <Plus className="w-4 h-4 mr-2" />
             New Project
-          </button>
+          </Link>
         </div>
       </header>
 

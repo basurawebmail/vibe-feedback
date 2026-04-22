@@ -1,49 +1,51 @@
 @import "tailwindcss";
 
+@plugin "tailwindcss-animate";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-    --font-sans: var(--font-inter);
-
-  --color-background: #0f172a;
-    --color-foreground: #f8fafc;
-
-  --color-card: #1e293b;
-    --color-card-foreground: #f8fafc;
-
-  --color-popover: #1e293b;
-    --color-popover-foreground: #f8fafc;
-
-  --color-primary: #10b981;
-    --color-primary-foreground: #022c22;
-
-  --color-secondary: #334155;
-    --color-secondary-foreground: #f8fafc;
-
-  --color-muted: #334155;
-    --color-muted-foreground: #94a3b8;
-
-  --color-accent: #334155;
-    --color-accent-foreground: #f8fafc;
-
-  --color-destructive: #ef4444;
-    --color-destructive-foreground: #450a0a;
-
-  --color-border: #334155;
-    --color-input: #334155;
-    --color-ring: #10b981;
+  --font-sans: var(--font-inter);
+  
+  --color-background: #0e0e0f;
+  --color-foreground: #e7e5e8;
+  
+  --color-card: #131315;
+  --color-card-foreground: #e7e5e8;
+  
+  --color-popover: #1f1f22;
+  --color-popover-foreground: #e7e5e8;
+  
+  --color-primary: #4ae176;
+  --color-primary-foreground: #004b1e;
+  
+  --color-secondary: #252628;
+  --color-secondary-foreground: #e7e5e8;
+  
+  --color-muted: #1f1f22;
+  --color-muted-foreground: #acaaae;
+  
+  --color-accent: #252628;
+  --color-accent-foreground: #e7e5e8;
+  
+  --color-destructive: #ee7d77;
+  --color-destructive-foreground: #490106;
+  
+  --color-border: #47484b;
+  --color-input: #252628;
+  --color-ring: #4ae176;
 
   --radius-lg: 0.5rem;
-    --radius-md: calc(var(--radius-lg) - 2px);
-    --radius-sm: calc(var(--radius-lg) - 4px);
+  --radius-md: calc(var(--radius-lg) - 2px);
+  --radius-sm: calc(var(--radius-md) - 2px);
 }
 
 @layer base {
-    * {
-          border-color: var(--border);
-    }
-    body {
-          background-color: var(--background);
-          color: var(--foreground);
-    }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    color-scheme: dark;
+  }
 }

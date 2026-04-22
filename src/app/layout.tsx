@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "LensReport | ForgePulse",
+  title: "VibeFeedback",
   description: "Visual feedback & bug reporting widget.",
 };
 
