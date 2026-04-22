@@ -66,7 +66,7 @@
 
   const modal = document.createElement('div');
   modal.className = 'vibe-modal';
-  modal.innerHTML = \`
+  modal.innerHTML = `
     <div class="vibe-header">Send Feedback</div>
     <div class="vibe-body">
       <textarea id="vibe-msg" placeholder="What's on your mind?"></textarea>
@@ -77,7 +77,7 @@
       <button class="btn btn-cancel" id="vibe-cancel">Cancel</button>
       <button class="btn btn-submit" id="vibe-submit">Send</button>
     </div>
-  \`;
+  `;
 
   shadow.appendChild(button);
   shadow.appendChild(modal);

@@ -55,6 +55,7 @@ export default async function ProjectsPage() {
 {`<script 
   src="${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/widget.js" 
   data-token="${project.script_token}" 
+  data-api="${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/api/feedback"
   defer
 ></script>`}
                   </pre>
