@@ -8,9 +8,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "VibeFeedback",
-  description: "Capture user vibe effortlessly.",
+  title: "LensReport | ForgePulse",
+  description: "Visual feedback & bug reporting widget.",
 };
+
+import { I18nProvider } from "@/lib/i18n";
 
 export default function RootLayout({
   children,
@@ -20,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.variable} font-sans bg-background text-foreground`}>
-        {children}
+        <I18nProvider>
+          {children}
+        </I18nProvider>
       </body>
     </html>
   );

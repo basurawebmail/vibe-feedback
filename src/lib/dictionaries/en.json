@@ -1,0 +1,24 @@
+{
+  "login": {
+    "title": "Welcome to LensReport",
+    "subtitle": "By ForgePulse. Enter your email to sign in or create an account",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "you@example.com",
+    "submit": "Send Magic Link",
+    "submitLoading": "Sending...",
+    "submitSuccess": "Link Sent"
+  },
+  "dashboard": {
+    "title": "LensReport",
+    "projects": "Projects",
+    "settings": "Settings",
+    "billing": "Billing",
+    "logout": "Log out"
+  },
+  "feedback": {
+    "title": "Feedback & Bugs",
+    "freePlan": "Free Plan",
+    "starterPlan": "Starter Plan",
+    "noFeedback": "No feedback yet. Embed your widget to get started."
+  }
+}

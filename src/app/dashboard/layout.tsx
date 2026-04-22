@@ -24,7 +24,7 @@ export default async function DashboardLayout({
             <div className="w-6 h-6 rounded bg-primary mr-3 flex items-center justify-center">
               <div className="w-3 h-3 bg-primary-foreground rounded-sm" />
             </div>
-            <span className="font-semibold text-lg tracking-tight">VibeFeedback</span>
+            <span className="font-semibold text-lg tracking-tight">LensReport</span>
           </div>
           
           <nav className="p-4 space-y-1">

@@ -3,11 +3,13 @@
 import { useState } from 'react'
 import { login } from './actions'
 import { Loader2 } from 'lucide-react'
+import { useTranslation } from '@/lib/i18n'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [message, setMessage] = useState('')
+  const { t } = useTranslation()
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -35,20 +37,20 @@ export default function LoginPage() {
           <div className="w-12 h-12 rounded bg-primary mx-auto mb-4 flex items-center justify-center">
             <div className="w-6 h-6 bg-primary-foreground rounded-sm" />
           </div>
-          <h2 className="text-2xl font-semibold tracking-tight text-foreground">Welcome to VibeFeedback</h2>
-          <p className="text-sm text-muted-foreground mt-2">Enter your email to sign in or create an account</p>
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground">{t.login.title}</h2>
+          <p className="text-sm text-muted-foreground mt-2">{t.login.subtitle}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4 bg-card border border-border p-6 rounded-lg shadow-sm">
           <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-foreground">
-              Email Address
+              {t.login.emailLabel}
             </label>
             <input
               id="email"
               type="email"
               name="email"
-              placeholder="you@example.com"
+              placeholder={t.login.emailPlaceholder}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -59,12 +61,12 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={status === 'loading' || status === 'success'}
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full shadow-[0_0_15px_rgba(74,225,118,0.2)]"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 w-full shadow-[0_0_15px_rgba(16,185,129,0.2)]"
           >
             {status === 'loading' ? (
               <Loader2 className="w-4 h-4 mr-2 animate-spin" />
             ) : null}
-            {status === 'success' ? 'Link Sent' : 'Send Magic Link'}
+            {status === 'success' ? t.login.submitSuccess : t.login.submit}
           </button>
 
           {status === 'success' && (
