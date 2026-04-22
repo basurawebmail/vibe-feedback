@@ -14,11 +14,12 @@ export async function login(formData: FormData) {
   }
 
   const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-                shouldCreateUser: true,
-                emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/auth/confirm`,
-        },
+    email,
+    options: {
+      // Set this to false if you do not want the user to be automatically signed up
+      shouldCreateUser: true,
+      emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/auth/confirm`,
+    },
   })
 
   if (error) {

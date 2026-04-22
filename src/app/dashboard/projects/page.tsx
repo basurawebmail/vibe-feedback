@@ -53,8 +53,8 @@ export default async function ProjectsPage() {
                   </div>
                   <pre className="text-primary-foreground/80">
 {`<script 
-  src="\${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/widget.js" 
-  data-token="\${project.script_token}" 
+  src="${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/widget.js" 
+  data-token="${project.script_token}" 
   defer
 ></script>`}
                   </pre>
@@ -75,7 +75,10 @@ export default async function ProjectsPage() {
             <h3 className="font-medium mb-4 flex items-center">
               <Plus className="w-4 h-4 mr-2" /> Add Project
             </h3>
-            <form action={addProject} className="space-y-4">
+            <form action={async (formData) => {
+              "use server"
+              await addProject(formData)
+            }} className="space-y-4">
               <div className="space-y-2">
                 <label htmlFor="name" className="text-sm font-medium">Project Name</label>
                 <input 
