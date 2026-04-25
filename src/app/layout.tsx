@@ -6,8 +6,11 @@ export const metadata: Metadata = {
   description: "Embeddable visual feedback and bug reporting for product teams.",
   metadataBase: new URL("https://lensreport.store"),
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/icon.svg",
   },
   alternates: {
