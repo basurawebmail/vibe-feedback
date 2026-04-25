@@ -7,10 +7,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://lensreport.store"),
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
       { url: "/icon.svg", type: "image/svg+xml" },
     ],
-    shortcut: "/favicon.ico",
+    shortcut: "/icon.svg",
     apple: "/icon.svg",
   },
   alternates: {
