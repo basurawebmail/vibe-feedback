@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import AnimatedBackground from "@/components/AnimatedBackground";
 
 export const metadata: Metadata = {
   title: "LensReport | ForgePulse",
@@ -26,7 +25,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans bg-background text-foreground">
-        <AnimatedBackground />
         <I18nProvider>
           {children}
         </I18nProvider>
