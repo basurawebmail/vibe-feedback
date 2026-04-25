@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 export const metadata: Metadata = {
-  title: "VibeFeedback",
-  description: "Visual feedback & bug reporting widget.",
+  title: "LensReport | ForgePulse",
+  description: "Embeddable visual feedback and bug reporting for product teams.",
+  metadataBase: new URL("https://lensreport.store"),
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 import { I18nProvider } from "@/lib/i18n";
@@ -20,8 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.variable} font-sans bg-background text-foreground`}>
+    <html lang="en">
+      <body className="font-sans bg-background text-foreground">
+        <AnimatedBackground />
         <I18nProvider>
           {children}
         </I18nProvider>
